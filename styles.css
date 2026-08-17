@@ -589,7 +589,7 @@ h2 {
 .research-card,
 .contact {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
   gap: clamp(28px, 7vw, 86px);
   align-items: start;
   padding: clamp(28px, 6vw, 58px);
@@ -630,12 +630,87 @@ h2 {
 }
 
 .contact {
+  position: relative;
   margin-bottom: clamp(24px, 5vw, 54px);
+  overflow: hidden;
+}
+
+.contact::before {
+  position: absolute;
+  inset: auto 8% -38% auto;
+  width: min(420px, 44vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 192, 123, 0.14), transparent 68%);
+  pointer-events: none;
+  content: "";
+}
+
+.contact-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 20px;
+}
+
+.contact-copy h2 {
+  max-width: 760px;
+}
+
+.contact-copy p {
+  max-width: 620px;
+  margin-bottom: 0;
+}
+
+.contact-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.contact-points span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.contact-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-self: center;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035)),
+    rgba(7, 8, 9, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .contact-actions {
-  align-self: end;
-  justify-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  padding-top: 4px;
+}
+
+.contact-actions .button {
+  min-height: 44px;
+}
+
+.contact-actions .button.primary {
+  grid-column: 1 / -1;
 }
 
 .site-footer {
@@ -752,7 +827,7 @@ h2 {
   }
 
   .contact-actions {
-    justify-self: start;
+    justify-self: stretch;
   }
 }
 
@@ -786,6 +861,14 @@ h2 {
 
   .contact-actions .button {
     width: 100%;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-actions .button.primary {
+    grid-column: auto;
   }
 
   .project-card,
