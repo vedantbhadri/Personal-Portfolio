@@ -1,17 +1,17 @@
 :root {
   color-scheme: dark;
-  --bg: #080b10;
-  --bg-soft: #0d121b;
-  --surface: rgba(17, 24, 36, 0.72);
-  --surface-strong: rgba(21, 30, 45, 0.94);
-  --text: #f4f7fb;
-  --muted: #9aa8ba;
-  --subtle: #6d7b8d;
-  --line: rgba(214, 225, 241, 0.12);
-  --line-strong: rgba(214, 225, 241, 0.22);
-  --accent: #7dd3fc;
-  --accent-2: #a7f3d0;
-  --accent-3: #c4b5fd;
+  --bg: #070809;
+  --bg-soft: #121417;
+  --surface: rgba(18, 20, 23, 0.72);
+  --surface-strong: rgba(22, 24, 28, 0.94);
+  --text: #f6f3ea;
+  --muted: #a4a8ae;
+  --subtle: #747982;
+  --line: rgba(246, 243, 234, 0.11);
+  --line-strong: rgba(246, 243, 234, 0.22);
+  --accent: #e5c07b;
+  --accent-2: #84dcc6;
+  --accent-3: #b8c1ec;
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
   --radius: 8px;
   --max: 1180px;
@@ -30,9 +30,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 8%, rgba(125, 211, 252, 0.13), transparent 28rem),
-    radial-gradient(circle at 82% 0%, rgba(167, 243, 208, 0.08), transparent 26rem),
-    linear-gradient(180deg, #080b10 0%, #0a0e15 48%, #080b10 100%);
+    radial-gradient(circle at 18% 8%, rgba(229, 192, 123, 0.11), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(132, 220, 198, 0.075), transparent 26rem),
+    linear-gradient(180deg, #070809 0%, #0c0d0f 48%, #070809 100%);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
@@ -56,7 +56,7 @@ body::before {
 }
 
 body::selection {
-  background: rgba(125, 211, 252, 0.28);
+  background: rgba(229, 192, 123, 0.26);
 }
 
 a {
@@ -92,23 +92,28 @@ button:focus-visible {
   inset: 0 0 auto;
   z-index: 30;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 22px;
+  gap: 18px;
   width: min(var(--max), calc(100% - 32px));
-  margin: 14px auto 0;
-  padding: 10px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(8, 11, 16, 0.58);
-  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px);
-  transition: background 220ms ease, border-color 220ms ease;
+  margin: 16px auto 0;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(18, 20, 23, 0.78), rgba(7, 8, 9, 0.54));
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(22px) saturate(145%);
+  transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .site-header.is-scrolled {
-  border-color: var(--line-strong);
-  background: rgba(8, 11, 16, 0.82);
+  background: linear-gradient(135deg, rgba(18, 20, 23, 0.92), rgba(7, 8, 9, 0.8));
+  box-shadow:
+    0 16px 58px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
 }
 
 .brand,
@@ -124,53 +129,75 @@ button:focus-visible {
 }
 
 .brand {
-  gap: 10px;
+  padding: 2px;
+  border-radius: 999px;
   font-weight: 800;
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 40px;
+  width: 46px;
   aspect-ratio: 1;
-  border-radius: 7px;
-  background: linear-gradient(135deg, rgba(125, 211, 252, 0.22), rgba(167, 243, 208, 0.12));
-  color: var(--text);
-  font-size: 0.78rem;
-  letter-spacing: 0;
+  border-radius: 0;
+  filter: drop-shadow(0 0 14px rgba(229, 192, 123, 0.16));
+}
+
+.brand-logo {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
 }
 
 .nav {
   justify-content: center;
-  gap: 4px;
+  gap: 2px;
+  min-width: 0;
 }
 
 .nav a,
 .header-links a {
-  border-radius: 7px;
+  border-radius: 999px;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  transition: background 180ms ease, color 180ms ease;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .nav a {
-  padding: 10px 12px;
+  padding: 9px 12px;
 }
 
 .header-links {
-  gap: 4px;
+  gap: 2px;
 }
 
 .header-links a {
-  padding: 9px 10px;
-  border: 1px solid transparent;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  aspect-ratio: 1;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.header-links svg {
+  width: 18px;
+  aspect-ratio: 1;
+  fill: currentColor;
 }
 
 .nav a:hover,
-.header-links a:hover,
+.header-links a:hover {
+  background: rgba(255, 255, 255, 0.075);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
 .site-footer a:hover {
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.075);
   color: var(--text);
 }
 
@@ -179,9 +206,9 @@ button:focus-visible {
   width: 44px;
   height: 44px;
   place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.04);
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text);
 }
 
@@ -237,13 +264,13 @@ button:focus-visible {
 .gradient-one {
   top: 10%;
   right: 12%;
-  background: rgba(125, 211, 252, 0.34);
+  background: rgba(229, 192, 123, 0.3);
 }
 
 .gradient-two {
   bottom: 10%;
   left: 5%;
-  background: rgba(167, 243, 208, 0.18);
+  background: rgba(132, 220, 198, 0.16);
   animation-delay: -4s;
 }
 
@@ -267,8 +294,7 @@ button:focus-visible {
 }
 
 .eyebrow,
-.section-kicker,
-.panel-label {
+.section-kicker {
   margin: 0 0 16px;
   color: var(--accent-2);
   font-size: 0.78rem;
@@ -329,10 +355,10 @@ h2 {
 }
 
 .button.primary {
-  border-color: rgba(125, 211, 252, 0.72);
-  background: linear-gradient(135deg, #dff7ff, #a7f3d0);
-  color: #061018;
-  box-shadow: 0 18px 42px rgba(125, 211, 252, 0.15);
+  border-color: rgba(229, 192, 123, 0.72);
+  background: linear-gradient(135deg, #f6f3ea, #e5c07b);
+  color: #070809;
+  box-shadow: 0 18px 42px rgba(229, 192, 123, 0.14);
 }
 
 .button.secondary {
@@ -346,49 +372,8 @@ h2 {
 
 .button.ghost:hover,
 .button.secondary:hover {
-  border-color: rgba(125, 211, 252, 0.52);
+  border-color: rgba(229, 192, 123, 0.5);
   color: var(--text);
-}
-
-.hero-panel {
-  grid-column: 1;
-  max-width: 620px;
-  position: relative;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-}
-
-.hero-panel ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.hero-panel li {
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  padding: 8px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--muted);
-  font-weight: 700;
-}
-
-.hero-panel li span {
-  display: inline;
-  width: auto;
-  border: 0;
-  color: var(--accent);
-  font-size: 0.78rem;
 }
 
 .section {
@@ -472,8 +457,8 @@ h2 {
 
 .filter:hover,
 .filter.active {
-  border-color: rgba(125, 211, 252, 0.5);
-  background: rgba(125, 211, 252, 0.1);
+  border-color: rgba(229, 192, 123, 0.48);
+  background: rgba(229, 192, 123, 0.1);
   color: var(--text);
 }
 
@@ -501,12 +486,12 @@ h2 {
 
 .project-card.featured {
   background:
-    radial-gradient(circle at 80% 0%, rgba(125, 211, 252, 0.16), transparent 26rem),
+    radial-gradient(circle at 80% 0%, rgba(229, 192, 123, 0.14), transparent 26rem),
     var(--surface-strong);
 }
 
 .project-card:hover {
-  border-color: rgba(125, 211, 252, 0.42);
+  border-color: rgba(229, 192, 123, 0.4);
   box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
 }
 
@@ -517,8 +502,8 @@ h2 {
   border-radius: 7px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 24% 22%, rgba(167, 243, 208, 0.2), transparent 11rem),
-    linear-gradient(135deg, rgba(125, 211, 252, 0.14), rgba(196, 181, 253, 0.08));
+    radial-gradient(circle at 24% 22%, rgba(132, 220, 198, 0.18), transparent 11rem),
+    linear-gradient(135deg, rgba(229, 192, 123, 0.13), rgba(184, 193, 236, 0.08));
 }
 
 .project-card.featured .project-visual {
@@ -528,7 +513,7 @@ h2 {
 .project-visual span {
   position: absolute;
   border-radius: 999px;
-  background: rgba(244, 247, 251, 0.36);
+  background: rgba(246, 243, 234, 0.34);
 }
 
 .project-visual span:nth-child(1) {
@@ -550,7 +535,7 @@ h2 {
   aspect-ratio: 1;
   right: 18%;
   bottom: 18%;
-  background: rgba(125, 211, 252, 0.2);
+  background: rgba(229, 192, 123, 0.18);
 }
 
 .project-content {
@@ -597,8 +582,8 @@ h2 {
 }
 
 .project-actions a:hover {
-  border-color: rgba(125, 211, 252, 0.48);
-  background: rgba(125, 211, 252, 0.08);
+  border-color: rgba(229, 192, 123, 0.46);
+  background: rgba(229, 192, 123, 0.08);
 }
 
 .research-card,
@@ -623,7 +608,7 @@ h2 {
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 7px;
-  background: rgba(8, 11, 16, 0.38);
+  background: rgba(7, 8, 9, 0.38);
 }
 
 .research-list span {
@@ -698,6 +683,8 @@ h2 {
 @media (max-width: 920px) {
   .site-header {
     grid-template-columns: auto auto;
+    gap: 10px;
+    border-radius: 24px;
   }
 
   .menu-toggle {
@@ -715,18 +702,22 @@ h2 {
     display: grid;
     grid-column: 1 / -1;
     justify-content: stretch;
-    gap: 6px;
+    gap: 5px;
   }
 
   .nav-open .header-links {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-top: 2px;
   }
 
   .nav a,
   .header-links a {
     width: 100%;
+    min-height: 44px;
+    aspect-ratio: auto;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.045);
+    text-align: center;
   }
 
   .hero,
@@ -745,11 +736,6 @@ h2 {
   .hero-content {
     grid-column: 1;
     order: 1;
-  }
-
-  .hero-panel {
-    max-width: 560px;
-    order: 3;
   }
 
   h1 {
@@ -781,10 +767,7 @@ h2 {
 
   .site-header {
     margin-top: 10px;
-  }
-
-  .brand span:last-child {
-    display: none;
+    padding: 7px;
   }
 
   .hero {
@@ -805,15 +788,10 @@ h2 {
     width: 100%;
   }
 
-  .hero-panel,
   .project-card,
   .research-card,
   .contact {
     padding: 20px;
-  }
-
-  .hero-panel {
-    display: none;
   }
 
   .project-card,
