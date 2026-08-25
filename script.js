@@ -1,8 +1,8 @@
 const siteLinks = {
-  github: "",
-  linkedin: "",
+  github: "https://github.com/vedantbhadri",
+  linkedin: "https://www.linkedin.com/in/vedant-bhadri/",
   cv: "",
-  email: "hello@example.com"
+  email: "vedantbhadri5@gmail.com"
 };
 
 const projects = [
@@ -10,7 +10,7 @@ const projects = [
     title: "Image Retrieval Using Pretrained CNN Embeddings",
     slug: "image-retrieval-cnn-embeddings",
     category: "Coursework",
-    featured: false,
+    featured: true,
     status: "Course paper - not peer reviewed",
     year: "Coursework",
     description: "A content-based image retrieval study using ResNet-50 embeddings, FAISS similarity search, and an ablation comparison of cosine similarity, L2 distance, and color-histogram baselines on CIFAR-10.",
@@ -28,7 +28,7 @@ const projects = [
     title: "Optimizing Urban Delivery Routes Using Genetic Algorithms",
     slug: "genetic-algorithm-urban-delivery-routes",
     category: "Coursework",
-    featured: false,
+    featured: true,
     status: "Course paper - not peer reviewed",
     year: "Coursework",
     description: "A nature-inspired computing project applying an enhanced genetic algorithm to smart-city vehicle routing with time windows, traffic factors, service times, adaptive mutation, and 2-Opt local search.",
@@ -41,7 +41,7 @@ const projects = [
     title: "EEG Theta Band Power for ADHD Classification",
     slug: "eeg-theta-adhd-ml-classification",
     category: "Coursework",
-    featured: false,
+    featured: true,
     status: "Course report - not peer reviewed",
     year: "Coursework",
     description: "A neuroinformatics coursework report using EEG theta-band power features and machine learning approaches to classify ADHD and control subjects in the NeuCom environment.",
@@ -54,7 +54,7 @@ const projects = [
     title: "Spiking Neural Network Approach for EEG-Based ADHD Classification",
     slug: "snn-eeg-adhd-classification",
     category: "Coursework",
-    featured: false,
+    featured: true,
     status: "Course report - not peer reviewed",
     year: "Coursework",
     description: "A neuroinformatics report exploring spiking neural networks for EEG-based ADHD classification using theta-band power, BSA spike encoding, NeuCube, SNNcube mapping, and deSNN classification.",
@@ -65,34 +65,11 @@ const projects = [
   }
 ];
 
-const researchItems = [
-  {
-    title: "Image Retrieval Using Pretrained CNN Embeddings",
-    status: "Course paper - not peer reviewed",
-    summary: "Coursework report on content-based image retrieval with pretrained CNN embeddings and similarity-metric comparison."
-  },
-  {
-    title: "Optimizing Urban Delivery Routes Using Genetic Algorithms",
-    status: "Course paper - not peer reviewed",
-    summary: "Nature-inspired computing report on smart-city vehicle routing with an enhanced genetic algorithm."
-  },
-  {
-    title: "EEG Theta Band Power for ADHD Classification",
-    status: "Course report - not peer reviewed",
-    summary: "Neuroinformatics report using EEG theta-band power and machine learning methods for ADHD/control classification."
-  },
-  {
-    title: "Spiking Neural Network Approach for EEG-Based ADHD Classification",
-    status: "Course report - not peer reviewed",
-    summary: "Neuroinformatics report using spike encoding, NeuCube, SNNcube mapping, and deSNN classification."
-  }
-];
-
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const projectGrid = document.querySelector("[data-project-grid]");
-const researchList = document.querySelector("[data-research-list]");
+const projectCount = document.querySelector("[data-project-count]");
 
 const syncHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -127,13 +104,13 @@ const wireProjectHover = () => {
 const setupReveals = () => {
   const animatedTargets = [
     ".hero-content",
-    ".hero-panel",
+    ".archive-hero",
     ".section-heading",
     ".about-copy",
     ".interest-cloud",
     ".project-card",
-    ".research-card",
-    ".contact"
+    ".contact",
+    ".contact-card"
   ];
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -164,21 +141,35 @@ const setupReveals = () => {
 };
 
 const renderProjects = (filter = "All") => {
+  if (!projectGrid) return;
+
+  const mode = projectGrid.dataset.projectMode || "all";
+  const featuredProjects = projects.filter((project) => project.featured);
+  const sourceProjects = mode === "featured"
+    ? (featuredProjects.length ? featuredProjects : projects).slice(0, 4)
+    : projects;
+
   const filtered = filter === "All"
-    ? projects
-    : projects.filter((project) => project.category === filter || (project.technologies || []).includes(filter));
+    ? sourceProjects
+    : sourceProjects.filter((project) => project.category === filter || (project.technologies || []).includes(filter));
+
+  if (projectCount) {
+    projectCount.textContent = `${filtered.length} ${filtered.length === 1 ? "project" : "projects"}`;
+  }
 
   projectGrid.innerHTML = filtered.map((project) => {
     const tags = (project.technologies || []).map((tag) => `<span>${tag}</span>`).join("");
+    const meta = [...new Set([project.category, project.status, project.year].filter(Boolean))]
+      .map((item) => `<span>${item}</span>`)
+      .join("");
     const actions = [
       createAction("GitHub", project.githubUrl),
       createAction("Demo", project.liveDemoUrl),
-      createAction("Report", project.paperUrl),
-      `<a href="#contact">Details</a>`
+      createAction("Report", project.paperUrl)
     ].filter(Boolean).join("");
 
     return `
-      <article class="project-card ${project.featured ? "featured" : ""}" data-category="${project.category}">
+      <article class="project-card" data-category="${project.category}">
         <div class="project-visual" aria-hidden="true">
           <span></span>
           <span></span>
@@ -186,9 +177,7 @@ const renderProjects = (filter = "All") => {
         </div>
         <div class="project-content">
           <div class="project-meta">
-            ${project.category ? `<span>${project.category}</span>` : ""}
-            ${project.status ? `<span>${project.status}</span>` : ""}
-            ${project.year ? `<span>${project.year}</span>` : ""}
+            ${meta}
           </div>
           <h3>${project.title}</h3>
           <p>${project.description}</p>
@@ -202,34 +191,29 @@ const renderProjects = (filter = "All") => {
   wireProjectHover();
 };
 
-const renderResearchItems = () => {
-  researchList.innerHTML = researchItems.map((item) => `
-    <article>
-      <span>${item.status}</span>
-      <h3>${item.title}</h3>
-      <p>${item.summary}</p>
-    </article>
-  `).join("");
-};
-
-syncHeader();
+if (header) syncHeader();
 renderProjects();
-renderResearchItems();
 setupReveals();
 
-window.addEventListener("scroll", syncHeader, { passive: true });
+if (header) {
+  window.addEventListener("scroll", syncHeader, { passive: true });
+}
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = document.body.classList.toggle("nav-open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("nav-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
 
-nav.addEventListener("click", (event) => {
-  if (event.target.matches("a")) {
-    document.body.classList.remove("nav-open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  }
-});
+if (nav && menuToggle) {
+  nav.addEventListener("click", (event) => {
+    if (event.target.matches("a")) {
+      document.body.classList.remove("nav-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
 
 document.querySelectorAll("[data-filter]").forEach((button) => {
   button.addEventListener("click", () => {

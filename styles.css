@@ -166,6 +166,11 @@ button:focus-visible {
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
+.nav a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.075);
+  color: var(--text);
+}
+
 .nav a {
   padding: 9px 12px;
 }
@@ -393,6 +398,14 @@ h2 {
   align-items: end;
 }
 
+.project-preview-heading {
+  max-width: 980px;
+}
+
+.project-count {
+  justify-self: end;
+}
+
 .section-heading h2,
 .contact h2 {
   margin-bottom: 0;
@@ -405,6 +418,35 @@ h2 {
 .about-copy {
   color: var(--muted);
   font-size: clamp(1.02rem, 1.8vw, 1.2rem);
+}
+
+.archive-hero {
+  position: relative;
+  padding: clamp(128px, 15vh, 168px) 0 clamp(54px, 8vw, 94px);
+}
+
+.archive-hero h1 {
+  max-width: 900px;
+  font-size: clamp(3.3rem, 7vw, 7rem);
+}
+
+.archive-hero p {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 1.8vw, 1.28rem);
+}
+
+.archive-projects {
+  padding-top: clamp(36px, 6vw, 72px);
+}
+
+.project-count {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 850;
+  text-transform: uppercase;
 }
 
 .about-grid {
@@ -465,16 +507,16 @@ h2 {
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .project-card {
   position: relative;
-  min-height: 380px;
+  min-height: 310px;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 28px;
-  padding: clamp(22px, 4vw, 32px);
+  gap: 18px;
+  padding: clamp(18px, 3vw, 24px);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -484,12 +526,6 @@ h2 {
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
 
-.project-card.featured {
-  background:
-    radial-gradient(circle at 80% 0%, rgba(229, 192, 123, 0.14), transparent 26rem),
-    var(--surface-strong);
-}
-
 .project-card:hover {
   border-color: rgba(229, 192, 123, 0.4);
   box-shadow: 0 26px 80px rgba(0, 0, 0, 0.28);
@@ -497,17 +533,13 @@ h2 {
 
 .project-visual {
   position: relative;
-  min-height: 126px;
+  min-height: 92px;
   border: 1px solid var(--line);
   border-radius: 7px;
   overflow: hidden;
   background:
     radial-gradient(circle at 24% 22%, rgba(132, 220, 198, 0.18), transparent 11rem),
     linear-gradient(135deg, rgba(229, 192, 123, 0.13), rgba(184, 193, 236, 0.08));
-}
-
-.project-card.featured .project-visual {
-  min-height: 126px;
 }
 
 .project-visual span {
@@ -541,24 +573,24 @@ h2 {
 .project-content {
   display: grid;
   align-content: start;
-  gap: 14px;
+  gap: 10px;
 }
 
 .project-meta,
 .tag-list,
 .project-actions {
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .project-meta span,
 .tag-list span {
-  padding: 7px 10px;
+  padding: 5px 8px;
 }
 
 .project-card h3 {
   margin: 0;
-  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
   line-height: 1;
 }
 
@@ -570,15 +602,21 @@ h2 {
 
 .project-actions a {
   display: inline-flex;
-  min-height: 38px;
+  min-height: 34px;
   align-items: center;
-  padding: 8px 11px;
+  padding: 7px 10px;
   border: 1px solid var(--line);
   border-radius: 7px;
   color: var(--text);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 800;
   transition: border-color 180ms ease, background 180ms ease;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 22px;
 }
 
 .project-actions a:hover {
@@ -586,7 +624,6 @@ h2 {
   background: rgba(229, 192, 123, 0.08);
 }
 
-.research-card,
 .contact {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr);
@@ -597,36 +634,6 @@ h2 {
   border-radius: var(--radius);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
   box-shadow: var(--shadow);
-}
-
-.research-list {
-  display: grid;
-  gap: 12px;
-}
-
-.research-list article {
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: rgba(7, 8, 9, 0.38);
-}
-
-.research-list span {
-  display: inline-flex;
-  margin-bottom: 10px;
-  color: var(--accent-2);
-  font-size: 0.78rem;
-  font-weight: 800;
-}
-
-.research-list h3 {
-  margin-bottom: 8px;
-  font-size: 1.08rem;
-}
-
-.research-list p {
-  margin-bottom: 0;
-  color: var(--muted);
 }
 
 .contact {
@@ -798,9 +805,12 @@ h2 {
   .hero,
   .about-grid,
   .section-heading.split,
-  .research-card,
   .contact {
     grid-template-columns: 1fr;
+  }
+
+  .project-count {
+    justify-self: start;
   }
 
   .hero {
@@ -820,10 +830,6 @@ h2 {
 
   .project-grid {
     grid-template-columns: 1fr;
-  }
-
-  .project-card.featured {
-    min-height: 500px;
   }
 
   .contact-actions {
@@ -872,19 +878,16 @@ h2 {
   }
 
   .project-card,
-  .research-card,
   .contact {
     padding: 20px;
   }
 
-  .project-card,
-  .project-card.featured {
+  .project-card {
     min-height: 0;
   }
 
-  .project-card.featured .project-visual,
   .project-visual {
-    min-height: 150px;
+    min-height: 110px;
   }
 
   .site-footer {
