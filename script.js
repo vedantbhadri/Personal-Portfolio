@@ -62,6 +62,19 @@ const projects = [
     githubUrl: "",
     liveDemoUrl: "",
     paperUrl: "assets/coursework/snn-eeg-adhd-classification.pdf"
+  },
+  {
+    title: "Mini AI Coding Agent",
+    slug: "mini-ai-coding-agent",
+    category: "Software",
+    featured: false,
+    status: "Personal project",
+    year: "2026",
+    description: "A terminal-based AI coding agent built with Python and the OpenAI API, using tool/function calling to inspect files, edit text files, run shell commands with confirmation, and maintain session history.",
+    technologies: ["Software", "AI/ML", "Python", "OpenAI API", "Tool Calling", "CLI", "Agents"],
+    githubUrl: "https://github.com/vedantbhadri/mini-ai-coding-agent",
+    liveDemoUrl: "",
+    paperUrl: ""
   }
 ];
 
