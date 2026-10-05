@@ -10,7 +10,7 @@ const projects = [
     title: "Image Retrieval Using Pretrained CNN Embeddings",
     slug: "image-retrieval-cnn-embeddings",
     category: "Coursework",
-    featured: true,
+    featured: false,
     status: "Course paper - not peer reviewed",
     year: "Coursework",
     description: "A content-based image retrieval study using ResNet-50 embeddings, FAISS similarity search, and an ablation comparison of cosine similarity, L2 distance, and color-histogram baselines on CIFAR-10.",
@@ -73,6 +73,19 @@ const projects = [
     description: "A terminal-based AI coding agent built with Python and the OpenAI API, using tool/function calling to inspect files, edit text files, run shell commands with confirmation, and maintain session history.",
     technologies: ["Software", "AI/ML", "Python", "OpenAI API", "Tool Calling", "CLI", "Agents"],
     githubUrl: "https://github.com/vedantbhadri/mini-ai-coding-agent",
+    liveDemoUrl: "",
+    paperUrl: ""
+  },
+  {
+    title: "AI Powered Allergen Compliance & Menu Translation",
+    slug: "ai-powered-allergen-compliance-menu-translation",
+    category: "Software",
+    featured: true,
+    status: "AWS AI Innovation Mentorship - 3rd place",
+    year: "Sept 2026",
+    description: "A team-built web application that converts uploaded restaurant menus into multilingual digital menus with allergen information based on New Zealand food-labelling standards.",
+    technologies: ["Software", "AI/ML", "AWS", "Amazon Bedrock", "Amazon Textract", "Flask", "OCR", "WebP"],
+    githubUrl: "",
     liveDemoUrl: "",
     paperUrl: ""
   }
