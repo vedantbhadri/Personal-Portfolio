@@ -1,145 +1,308 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="graphite">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Vedant Bhadri's portfolio for AI, machine learning, software engineering, research, and technical projects.">
-    <meta property="og:title" content="Vedant Bhadri | AI, ML, Software Engineering">
-    <meta property="og:description" content="A personal technology portfolio for projects, research, software systems, and technical work.">
+    <title>Vedant Bhadri · AI & Software Engineer</title>
+    <meta name="description" content="Vedant Bhadri builds machine learning systems and software, from wearable-signal research to production backends.">
+    <meta property="og:title" content="Vedant Bhadri · AI & Software Engineer">
+    <meta property="og:description" content="Machine learning, signal processing and software engineering portfolio.">
     <meta property="og:type" content="website">
-    <title>Vedant Bhadri | AI, ML & Software Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#1c1c1e">
+    <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Vedant Bhadri home">
-        <span class="brand-mark" aria-hidden="true">
-          <img class="brand-logo" src="assets/logo/vedant-v-logo.svg" alt="">
-        </span>
-      </a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-
-      <nav class="nav" id="primary-nav" aria-label="Primary navigation" data-nav>
-        <a href="#top">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+    <!-- ============ NAV ============ -->
+    <header class="nav-wrap" data-header>
+      <nav class="nav container" aria-label="Primary">
+        <a class="brand" href="#top" aria-label="Vedant Bhadri, home">Vedant<span>.</span></a>
+        <div class="nav-links" data-nav>
+          <a href="#about">About</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="projects.html">Archive</a>
+        </div>
+        <a class="pill-btn pill-btn-light nav-cta" href="#contact">
+          Get in touch
+          <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-btn>
+          <span></span><span></span>
+          <span class="sr-only">Menu</span>
+        </button>
       </nav>
-
-      <div class="header-links" aria-label="External links">
-        <a href="https://github.com/vedantbhadri" target="_blank" rel="noopener" aria-label="GitHub profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2.25c-5.38 0-9.75 4.37-9.75 9.75 0 4.31 2.8 7.96 6.68 9.25.49.09.67-.21.67-.47v-1.69c-2.72.59-3.3-1.16-3.3-1.16-.44-1.13-1.08-1.43-1.08-1.43-.88-.6.07-.59.07-.59.98.07 1.49 1 1.49 1 .86 1.48 2.27 1.05 2.82.8.09-.62.34-1.05.61-1.29-2.17-.25-4.45-1.09-4.45-4.83 0-1.07.38-1.94 1-2.62-.1-.25-.44-1.25.1-2.59 0 0 .82-.26 2.68 1a9.18 9.18 0 0 1 4.88 0c1.86-1.26 2.68-1 2.68-1 .54 1.34.2 2.34.1 2.59.62.68 1 1.55 1 2.62 0 3.75-2.29 4.58-4.46 4.82.35.3.66.89.66 1.8v2.67c0 .26.18.56.68.47A9.76 9.76 0 0 0 21.75 12c0-5.38-4.37-9.75-9.75-9.75Z"></path>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/vedant-bhadri/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5.13 8.62H2.5v12.13h2.63V8.62ZM3.82 3.25a1.53 1.53 0 1 0 0 3.06 1.53 1.53 0 0 0 0-3.06Zm6.04 5.37H7.34v12.13h2.63v-6.2c0-1.63.75-2.91 2.35-2.91 1.37 0 2.04.98 2.04 2.76v6.35h2.63V13.9c0-3.42-1.82-5.17-4.25-5.17-1.43 0-2.3.63-2.88 1.38V8.62Z"></path>
-          </svg>
-        </a>
-        <a href="assets/cv/vedant-bhadri-cv.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2.75h6.1c.35 0 .69.14.94.39l3.82 3.82c.25.25.39.59.39.94v4.35h-1.8V8.65h-3.8a1.3 1.3 0 0 1-1.3-1.3v-3.8H7c-.41 0-.75.34-.75.75v15.4c0 .41.34.75.75.75h4.5v1.8H7a2.55 2.55 0 0 1-2.55-2.55V5.3A2.55 2.55 0 0 1 7 2.75Zm6.15 1.72v2.38h2.38l-2.38-2.38Zm4.1 8.78a.9.9 0 0 1 .9.9v3.78l1.21-1.21a.9.9 0 1 1 1.28 1.27l-2.75 2.75a.9.9 0 0 1-1.28 0l-2.75-2.75a.9.9 0 1 1 1.28-1.27l1.21 1.21v-3.78a.9.9 0 0 1 .9-.9ZM7.9 10.2h6.2V12H7.9v-1.8Zm0 3.45h4.35v1.8H7.9v-1.8Z"></path>
-          </svg>
-        </a>
+      <div class="mobile-menu container" id="mobile-menu" data-mobile-menu>
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="projects.html">Archive</a>
+        <a href="#contact">Contact</a>
       </div>
     </header>
 
-    <main id="top">
-      <section class="hero section-frame" aria-labelledby="hero-title">
-        <div class="hero-backdrop" aria-hidden="true">
-          <span class="gradient gradient-one"></span>
-          <span class="gradient gradient-two"></span>
-          <span class="mesh"></span>
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero container">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-grain" aria-hidden="true"></div>
+
+          <div class="hero-main">
+            <div class="hero-copy">
+              <p class="hero-hello reveal">I'm</p>
+              <h1 id="hero-title" class="reveal">Vedant<br>Bhadri</h1>
+              <p class="hero-role reveal">AI &amp; Software Engineer · Auckland, NZ</p>
+              <div class="hero-actions reveal">
+                <a class="pill-btn pill-btn-light" href="#projects">
+                  View projects
+                  <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+                </a>
+                <a class="pill-btn pill-btn-outline" href="assets/cv/vedant-bhadri-cv.pdf" target="_blank" rel="noopener">Download CV</a>
+              </div>
+              <ul class="socials reveal" aria-label="Profiles">
+                <li><a href="https://github.com/vedantbhadri" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2.25c-5.38 0-9.75 4.37-9.75 9.75 0 4.31 2.8 7.96 6.68 9.25.49.09.67-.21.67-.47v-1.69c-2.72.59-3.3-1.16-3.3-1.16-.44-1.13-1.08-1.43-1.08-1.43-.88-.6.07-.59.07-.59.98.07 1.49 1 1.49 1 .86 1.48 2.27 1.050 2.82.8.09-.62.34-1.05.61-1.29-2.17-.25-4.45-1.09-4.45-4.83 0-1.07.38-1.94 1-2.62-.1-.25-.44-1.25.1-2.59 0 0 .82-.26 2.68 1a9.18 9.18 0 0 1 4.88 0c1.86-1.26 2.68-1 2.68-1 .54 1.34.2 2.34.1 2.59.62.68 1 1.55 1 2.62 0 3.75-2.29 4.58-4.46 4.82.35.3.66.89.66 1.8v2.67c0 .26.18.56.68.47A9.76 9.76 0 0 0 21.75 12c0-5.38-4.37-9.75-9.75-9.75Z"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/vedant-bhadri/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5.13 8.62H2.5v12.13h2.63V8.62ZM3.820 3.25a1.53 1.53 0 1 0 0 3.06 1.53 1.53 0 0 0 0-3.06Zm6.04 5.37H7.34v12.13h2.63v-6.2c0-1.63.75-2.91 2.35-2.91 1.37 0 2.04.98 2.04 2.76v6.35h2.63V13.9c0-3.42-1.82-5.17-4.25-5.17-1.43 0-2.3.63-2.88 1.38V8.62Z"/></svg></a></li>
+                <li><a href="mailto:vedantbhadri5@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3.5 5.5h17v13h-17z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m4 6.5 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></a></li>
+              </ul>
+            </div>
+
+            <!-- PORTRAIT PLACEHOLDER
+                 Replace this <figure> contents with:
+                 <img src="assets/img/portrait.png" alt="Portrait of Vedant Bhadri">
+                 A transparent-background PNG (cut-out) looks best here. -->
+            <figure class="portrait reveal" aria-label="Portrait placeholder">
+              <div class="portrait-placeholder">
+                <svg viewBox="0 0 200 240" aria-hidden="true">
+                  <circle cx="100" cy="88" r="44"/>
+                  <path d="M20 240c0-52 36-86 80-86s80 34 80 86z"/>
+                </svg>
+                <span>Portrait coming soon</span>
+              </div>
+            </figure>
+
+            <div class="hero-side reveal">
+              <p class="hero-side-title">Great models should feel <em>invisible.</em></p>
+              <p>From noisy wearable signals to production APIs, I build the systems that make machine learning useful.</p>
+            </div>
+          </div>
+
+          <ol class="hero-skills" aria-label="Specialties">
+            <li class="reveal"><span>/01</span>Machine Learning</li>
+            <li class="reveal"><span>/02</span>Signal Processing</li>
+            <li class="reveal"><span>/03</span>Backend &amp; Data</li>
+            <li class="reveal"><span>/04</span>LLM Agents</li>
+          </ol>
         </div>
 
-        <div class="hero-content">
-          <p class="eyebrow">AI • Machine Learning • Software Engineering • Research</p>
-          <h1 id="hero-title">VEDANT BHADRI</h1>
-          <p class="hero-copy">
-            I build intelligent systems, explore machine learning, and turn technical ideas into working software.
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href="#contact">Contact</a>
-            <a class="button ghost" href="https://github.com/vedantbhadri" target="_blank" rel="noopener" aria-label="GitHub profile">GitHub</a>
+        <!-- Dark tool band, Folioblox "trusted by" style -->
+        <div class="tool-band container" aria-label="Tools I build with">
+          <p class="tool-band-label">Tools I<br>build with</p>
+          <div class="tool-marquee">
+            <div class="tool-track" data-marquee>
+              <span><i class="ti ti-py"></i>Python</span>
+              <span><i class="ti ti-torch"></i>PyTorch</span>
+              <span><i class="ti ti-tf"></i>TensorFlow</span>
+              <span><i class="ti ti-aws"></i>AWS</span>
+              <span><i class="ti ti-ai"></i>OpenAI API</span>
+              <span><i class="ti ti-db"></i>SQL</span>
+              <span><i class="ti ti-vec"></i>FAISS</span>
+              <span><i class="ti ti-pi"></i>Raspberry Pi</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section about" id="about" aria-labelledby="about-title">
-        <div class="section-heading">
-          <p class="section-kicker">About</p>
-          <h2 id="about-title">Turning data, models, and systems into intelligent software.</h2>
+      <!-- ============ ABOUT ============ -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container about">
+          <div class="about-head reveal">
+            <p class="eyebrow">Behind the code</p>
+            <h2 id="about-title">Turning research into systems that <span class="hl">actually work.</span></h2>
+          </div>
+          <div class="about-body reveal">
+            <p class="about-lead">I'm a Master's student in Computer &amp; Information Sciences at AUT, focused on building practical systems from data, models and code.</p>
+            <p>I've built REST APIs and SQL pipelines for a live algorithmic trading system, OCR parsing for an AWS-powered menu app, and deep-learning pipelines for wearable physiological signals. I care about honest evaluation: hold-out tests, baselines, and checking the fancier model actually earns its place.</p>
+            <a class="pill-btn pill-btn-dark" href="#contact">
+              Let's build something
+              <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+            </a>
+          </div>
+
+          <ul class="stats" aria-label="At a glance">
+            <li class="reveal"><strong>9</strong><span>Projects shipped &amp; researched</span></li>
+            <li class="reveal"><strong>3<sup>rd</sup></strong><span>AWS AI Innovation Mentorship</span></li>
+            <li class="reveal"><strong>2</strong><span>Courses taught as a TA</span></li>
+            <li class="reveal"><strong>2</strong><span>Degrees in computing</span></li>
+          </ul>
         </div>
-        <div class="about-grid">
-          <p class="about-copy">
-            I am a Master's of Computer and Information Sciences student at Auckland University of Technology, focused on building practical systems from data, models, and code. My work spans machine learning, backend APIs, SQL pipelines, optimization algorithms, EEG signal classification, image retrieval with CNN embeddings, and ongoing deep learning research for non-invasive blood glucose estimation.
-          </p>
-          <div class="interest-cloud" aria-label="Technical interests">
-            <span>Python</span>
-            <span>SQL</span>
-            <span>Machine Learning</span>
-            <span>Deep Learning</span>
-            <span>Data Analytics</span>
-            <span>Signal Processing</span>
-            <span>Computer Vision</span>
-            <span>REST APIs</span>
-            <span>Algorithm Design</span>
-            <span>Optimization</span>
+      </section>
+
+      <!-- ============ EXPERTISE ============ -->
+      <section class="section section-alt" id="expertise" aria-labelledby="expertise-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <div>
+              <p class="eyebrow">What I bring</p>
+              <h2 id="expertise-title">Expertise</h2>
+            </div>
+            <a class="pill-btn pill-btn-outline-dark" href="#projects">See projects</a>
+          </header>
+
+          <div class="services">
+            <article class="service service-accent reveal">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2 13h3l2.5-7 4 13 3-9 2 3H22"/></svg></span>
+              <h3>Machine Learning &amp; Research</h3>
+              <p>Deep-learning pipelines for real-world signals: quality assessment, feature extraction, CNN–Transformer models and subject-independent evaluation.</p>
+              <p class="service-tags">PyTorch · TensorFlow · scikit-learn</p>
+            </article>
+            <article class="service reveal">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.75"/><path d="M4.5 5.5v6.5c0 1.5 3.4 2.75 7.5 2.75s7.5-1.25 7.5-2.75V5.5M4.5 12v6.5c0 1.5 3.4 2.75 7.5 2.75s7.5-1.25 7.5-2.75V12"/></svg></span>
+              <h3>Backend &amp; Data Engineering</h3>
+              <p>Python services, REST APIs and SQL pipelines built to stay reliable under real-time load, as in production algorithmic trading.</p>
+              <p class="service-tags">Python · REST · SQL · Flask</p>
+            </article>
+            <article class="service reveal">
+              <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V3.5M9 12.5h.01M15 12.5h.01M9.5 16h5"/></svg></span>
+              <h3>AI Agents &amp; Cloud</h3>
+              <p>LLM tool-calling agents and AWS-powered apps that turn documents and prompts into working features with Bedrock and Textract.</p>
+              <p class="service-tags">OpenAI API · Bedrock · Textract</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section projects" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading project-preview-heading">
-          <div>
-            <p class="section-kicker">Projects</p>
-            <h2 id="projects-title">From research concepts to engineered solutions.</h2>
-          </div>
-        </div>
+      <!-- ============ EXPERIENCE ============ -->
+      <section class="section" id="experience" aria-labelledby="exp-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <div>
+              <p class="eyebrow">Career</p>
+              <h2 id="exp-title">Experience</h2>
+            </div>
+          </header>
 
-        <div class="project-grid" data-project-grid data-project-mode="featured" aria-live="polite"></div>
-        <div class="project-footer">
-          <a class="button secondary" href="projects.html">View all projects</a>
+          <div class="exp-grid">
+            <article class="exp reveal">
+              <div class="exp-top">
+                <span class="exp-date">Feb 2026 to now</span>
+                <span class="exp-place">Auckland, NZ</span>
+              </div>
+              <h3>Teaching Assistant</h3>
+              <p class="exp-org">Auckland University of Technology</p>
+              <p class="exp-sub">COMP501 Computing Technology in Society · COMP517 Data Analysis</p>
+              <ul>
+                <li>Support undergraduates in weekly labs through experiments, data analysis and problem-solving.</li>
+                <li>Grade assignments and lab reports with clear, constructive feedback.</li>
+                <li>Adapt explanations for students across a wide range of technical backgrounds.</li>
+              </ul>
+            </article>
+            <article class="exp reveal">
+              <div class="exp-top">
+                <span class="exp-date">Jun to Sept 2024</span>
+                <span class="exp-place">Bangalore, IN</span>
+              </div>
+              <h3>Software Engineering Intern</h3>
+              <p class="exp-org">Wynby Technologies</p>
+              <p class="exp-sub">Python · REST APIs · SQL</p>
+              <ul>
+                <li>Built Python backend infrastructure for a live algorithmic trading system, including REST APIs and SQL pipelines for real-time market data.</li>
+                <li>Designed trading logic including trailing stop-loss mechanisms and pattern-recognition algorithms.</li>
+                <li>Shipped backend features into production with traders and engineers under live market conditions.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="edu-row">
+            <article class="edu reveal">
+              <span class="edu-badge">MCIS</span>
+              <div>
+                <h3>Master of Computer &amp; Information Sciences</h3>
+                <p>Auckland University of Technology · 2025 to now</p>
+              </div>
+            </article>
+            <article class="edu reveal">
+              <span class="edu-badge">B.E.</span>
+              <div>
+                <h3>Bachelor of Engineering, Information Science</h3>
+                <p>KLS Gogte Institute of Technology · 2020 to 2024</p>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="contact" id="contact" aria-labelledby="contact-title">
-        <div class="contact-copy">
-          <p class="section-kicker">Contact</p>
-          <h2 id="contact-title">Have an idea, role, or research problem worth building?</h2>
-          <p>
-            I’m interested in applied AI, software engineering, data systems, and research-led technical work. If the problem needs analytical thinking and clean implementation, I’d be glad to talk.
-          </p>
-          <div class="contact-points" aria-label="Ways to collaborate">
-            <span>Applied AI</span>
-            <span>Data systems</span>
-            <span>Software roles</span>
-            <span>Research projects</span>
+      <!-- ============ PROJECTS ============ -->
+      <section class="section section-alt" id="projects" aria-labelledby="projects-title">
+        <div class="container">
+          <header class="section-head reveal">
+            <div>
+              <p class="eyebrow">My portfolio</p>
+              <h2 id="projects-title">Projects</h2>
+            </div>
+            <a class="pill-btn pill-btn-dark" href="projects.html">
+              View all projects
+              <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5"/></svg></span>
+            </a>
+          </header>
+
+          <div class="filters reveal" role="tablist" aria-label="Filter projects" data-filters>
+            <button class="filter is-active" type="button" role="tab" aria-selected="true" data-filter="All">All</button>
+            <button class="filter" type="button" role="tab" aria-selected="false" data-filter="AI/ML">AI/ML</button>
+            <button class="filter" type="button" role="tab" aria-selected="false" data-filter="Software">Software</button>
+            <button class="filter" type="button" role="tab" aria-selected="false" data-filter="Research">Research</button>
+            <button class="filter" type="button" role="tab" aria-selected="false" data-filter="Vibe Coding">Vibe Coding</button>
+          </div>
+
+          <div class="work-grid" data-projects="featured"></div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact reveal">
+            <div class="contact-glow" aria-hidden="true"></div>
+            <div class="contact-left">
+              <p class="eyebrow eyebrow-light">Contact</p>
+              <h2 id="contact-title">Let's build something meaningful together.</h2>
+              <p>I'm open to graduate roles in applied AI, ML engineering and software, plus research collaborations.</p>
+            </div>
+            <div class="contact-right">
+              <a class="contact-mail" href="mailto:vedantbhadri5@gmail.com">
+                <span>Email me</span>
+                vedantbhadri5@gmail.com
+              </a>
+              <div class="contact-actions">
+                <button class="pill-btn pill-btn-light" type="button" data-copy="vedantbhadri5@gmail.com">
+                  <span data-copy-label>Copy email</span>
+                  <span class="pill-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="5" y="5" width="8" height="8" rx="1.5"/><path d="M3 10.5V4a1 1 0 0 1 1-1h6.5"/></svg></span>
+                </button>
+                <a class="pill-btn pill-btn-outline" href="https://www.linkedin.com/in/vedant-bhadri/" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="pill-btn pill-btn-outline" href="https://github.com/vedantbhadri" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
           </div>
         </div>
-        <aside class="contact-card" aria-label="Contact actions">
-          <div class="contact-actions">
-            <a class="button primary" href="mailto:vedantbhadri5@gmail.com">Start a conversation</a>
-            <a class="button secondary" href="https://www.linkedin.com/in/vedant-bhadri/" target="_blank" rel="noopener" aria-label="LinkedIn profile">LinkedIn</a>
-            <a class="button ghost" href="assets/cv/vedant-bhadri-cv.pdf" target="_blank" rel="noopener" aria-label="Open Vedant Bhadri CV PDF">View CV</a>
-          </div>
-        </aside>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <span>© 2026 Vedant Bhadri</span>
-      <a href="#top">Back to top</a>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <a class="brand" href="#top">Vedant<span>.</span></a>
+        <p>© <span data-year>2026</span> Vedant Bhadri · Designed &amp; built in Auckland</p>
+        <a class="footer-top" href="#top">Back to top ↑</a>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
