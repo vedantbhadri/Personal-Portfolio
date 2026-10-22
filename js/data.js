@@ -6,7 +6,7 @@ window.SITE = {
   email: "vedantbhadri5@gmail.com",
   github: "https://github.com/vedantbhadri",
   linkedin: "https://www.linkedin.com/in/vedant-bhadri/",
-  cv: "assets/cv/vedant-bhadri-cv.pdf"
+  cv: "assets/cv/vedant-bhadri-cv.pdf?v=2026-10-21"
 };
 
 // `visual` picks the generative card illustration: signal | network | route | grid | terminal | menu
