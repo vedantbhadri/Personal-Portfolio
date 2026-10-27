@@ -585,6 +585,28 @@ h1, h2, h3 { letter-spacing: -0.035em; line-height: 1.05; font-weight: 700; }
     0 40px 100px -40px rgba(255, 90, 31, .35);
 }
 
+/* Captioning card */
+.vis-caption { background: linear-gradient(150deg, #2a2522, #221f1d); }
+.v-photo { fill: #3a3f47; stroke: rgba(255,255,255,.12); stroke-width: 1; }
+.v-hill { fill: #4c5a4a; }
+.v-sun { fill: rgba(255, 210, 160, .55); }
+.v-heat { fill: rgba(255, 90, 31, .28); }
+.v-heat-core { fill: rgba(255, 140, 60, .55); }
+.v-bubble-cap { fill: #f1efeb; }
+.v-cap-text { fill: #161616; font-family: var(--mono); font-size: 11px; }
+.vis-caption .v-tile { fill: rgba(255,255,255,.07); stroke: rgba(255,255,255,.1); }
+.vis-caption .v-pill-text { font-size: 9.5px; }
+
+/* Sign-recognition card */
+.vis-signs { background: linear-gradient(150deg, #24272b, #1b1d20); }
+.vis-signs .v-tile { fill: rgba(255,255,255,.07); stroke: rgba(255,255,255,.1); }
+.v-sign { fill: #f1efeb; font-family: var(--font); font-weight: 800; font-size: 20px; }
+.v-sign.is-hot { fill: #fff; }
+.v-arrow { fill: none; stroke: rgba(255,255,255,.45); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.v-pad-ink { fill: rgba(255,255,255,.7); }
+.v-pad-ink.is-hot { fill: #fff; }
+.v-stop { fill: rgba(255,255,255,.12); stroke: rgba(255,255,255,.2); stroke-width: 1; }
+
 /* Vibe Coding cards */
 .card-cat-vibe { background: var(--orange) !important; color: #fff !important; }
 .vis-kanban { background: linear-gradient(150deg, #262629, #1d1d20); }

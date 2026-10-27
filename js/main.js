@@ -141,6 +141,41 @@
         <path d="M312 172l-6 10 16-10z" class="v-bubble"/>
         <text x="339" y="157" text-anchor="middle" class="v-pill-text">AI ✦</text>`;
     },
+    caption() {
+      // A photo frame with an attention heat patch, and the generated caption below it
+      return `
+        <rect x="70" y="20" width="170" height="118" rx="10" class="v-photo"/>
+        <path d="M70 118l46-38 34 26 28-20 62 32v10a10 10 0 0 1-10 10H80a10 10 0 0 1-10-10z" class="v-hill"/>
+        <circle cx="206" cy="46" r="11" class="v-sun"/>
+        <circle cx="138" cy="86" r="30" class="v-heat"/>
+        <circle cx="138" cy="86" r="14" class="v-heat-core"/>
+        <rect x="70" y="150" width="210" height="32" rx="16" class="v-bubble-cap"/>
+        <text x="86" y="171" class="v-cap-text">"a dog running on grass"</text>
+        <g class="v-scores">
+          <rect x="262" y="26" width="76" height="22" rx="11" class="v-tile"/><text x="300" y="41" text-anchor="middle" class="v-pill-text dark">CIDEr .84</text>
+          <rect x="262" y="56" width="76" height="22" rx="11" class="v-tile"/><text x="300" y="71" text-anchor="middle" class="v-pill-text dark">BLEU-4 .29</text>
+          <rect x="262" y="86" width="76" height="22" rx="11" class="v-node-hot"/><text x="300" y="101" text-anchor="middle" class="v-pill-text">5,000 imgs</text>
+        </g>`;
+    },
+    signs() {
+      // Six sign classes on the left, mapped to a navigation pad on the right
+      const labels = ["B", "F", "L", "R", "S", "∅"];
+      let tiles = "";
+      labels.forEach((l, i) => {
+        const x = 40 + (i % 3) * 50, y = 44 + Math.floor(i / 3) * 58;
+        const hot = l === "L";
+        tiles += `<rect x="${x}" y="${y}" width="42" height="48" rx="9" class="${hot ? "v-node-hot" : "v-tile"}"/>`;
+        tiles += `<text x="${x + 21}" y="${y + 31}" text-anchor="middle" class="v-sign${hot ? " is-hot" : ""}">${l}</text>`;
+      });
+      const pad = [[300, 52, "M300 44l9 12h-18z"], [300, 148, "M300 156l9-12h-18z"], [252, 100, "M244 100l12-9v18z"], [348, 100, "M356 100l-12-9v18z"]];
+      return `
+        ${tiles}
+        <path d="M200 100h30" class="v-arrow"/><path d="M226 94l8 6-8 6" class="v-arrow"/>
+        <circle cx="300" cy="100" r="62" class="v-col"/>
+        ${pad.map(([cx, cy, d], i) => `<circle cx="${cx}" cy="${cy}" r="17" class="${i === 2 ? "v-node-hot" : "v-tile"}"/><path d="${d}" class="${i === 2 ? "v-pad-ink is-hot" : "v-pad-ink"}"/>`).join("")}
+        <rect x="286" y="86" width="28" height="28" rx="7" class="v-stop"/>
+        <text x="300" y="186" text-anchor="middle" class="v-pill-text">TURN LEFT</text>`;
+    },
     arena() {
       // First-person view: perspective floor, obstacles, a drone and the crosshair
       let floor = "";

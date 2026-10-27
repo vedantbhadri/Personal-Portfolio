@@ -78,6 +78,32 @@ window.PROJECTS = [
     links: { github: "https://github.com/vedantbhadri/arena-one" }
   },
   {
+    title: "Image Captioning with BLIP on MS COCO",
+    slug: "blip-image-captioning",
+    category: "Coursework",
+    tags: ["AI/ML", "Research", "Coursework"],
+    featured: false,
+    status: "Deep Learning · AUT",
+    date: "June 2026",
+    visual: "caption",
+    description: "Evaluated a pretrained BLIP Transformer captioner on all 5,000 MS COCO val2017 images against five human references each, reaching a CIDEr of 0.837 and BLEU-4 of 0.286. Compared performance across object supercategories and used attention maps to show that weak captions often fixate on background details like sky or grass.",
+    stack: ["PyTorch", "Hugging Face", "BLIP", "MS COCO", "Google Colab"],
+    links: {}
+  },
+  {
+    title: "ASL Sign Recognition for Robot Navigation",
+    slug: "asl-sign-robot-navigation",
+    category: "Coursework",
+    tags: ["AI/ML", "Research", "Coursework"],
+    featured: false,
+    status: "Deep Learning · AUT",
+    date: "June 2026",
+    visual: "signs",
+    description: "Mapped six static ASL signs (B, F, L, R, S and \"nothing\") to robot-navigation commands and compared a CNN baseline with MobileNetV3-Small transfer learning. MobileNetV3-Small reached 99.44% test accuracy against 71.11% for the baseline, while webcam testing (73.3%) exposed the gap between dataset images and real-world conditions.",
+    stack: ["MobileNetV3-Small", "CNN", "Transfer Learning", "Computer Vision"],
+    links: {}
+  },
+  {
     title: "Spiking Neural Networks for EEG-Based ADHD Classification",
     slug: "snn-eeg-adhd-classification",
     category: "Coursework",
